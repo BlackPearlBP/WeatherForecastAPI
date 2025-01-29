@@ -13,7 +13,7 @@ def get_coordinates(city: str, country: str):
 
     geocode_url = "https://nominatim.openstreetmap.org/search"
     params = {"q": f"{city}, {country}", "format": "json", "limit": 1}
-    headers = {"User-Agent": "WeatherForecastAPI/1.0 (your_email@example.com)"}  # Adicione seu e-mail ou identificação aqui
+    headers = {"User-Agent": "WeatherForecastAPI/1.0 (email@email.com)"}
 
     try:
         response = requests.get(geocode_url, params=params, headers=headers)
@@ -27,7 +27,7 @@ def get_coordinates(city: str, country: str):
         cache.set(cache_key, (lat, lon), timeout=86400)  # Cache de 24 horas
         return lat, lon
     except requests.exceptions.RequestException as e:
-        print(f"Error fetching coordinates: {e}")  # Log de erro para diagnóstico
+        print(f"Error fetching coordinates: {e}")
         return None
 
 def get_weather_forecast(city: str, country: str, forecast_type: str = "hourly"):

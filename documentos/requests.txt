@@ -1,4 +1,4 @@
-REQUISIÇÃO DE PREVISÃO: Passar parametros de latitude, longitude e o tipo( hourly, daily e weekly)
+REQUISIÇÃO DE PREVISÃO: Passar parametros de latitude, longitude e o tipo( hourly ou daily)
     GET - http://127.0.0.1:8000/api/forecast/?city=São Paulo&country=Brazil&type=daily
 
 
