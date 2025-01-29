@@ -26,11 +26,8 @@ class FavoriteLocationViewSet(viewsets.ModelViewSet):
     serializer_class = FavoriteLocationSerializer
     permission_classes = [AllowAny]
 
-    def get_queryset(self):
-        return self.queryset
-
     def perform_create(self, serializer):
-        serializer.save
+        serializer.save()
 
 class WeatherHistoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = WeatherHistory.objects.all()

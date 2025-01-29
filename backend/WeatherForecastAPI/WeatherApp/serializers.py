@@ -4,7 +4,7 @@ from .models import FavoriteLocation, WeatherHistory
 class FavoriteLocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = FavoriteLocation
-        fields = ['id', 'latitude', 'longitude', 'name', 'nickname']
+        fields = '__all__'
 
 class WeatherHistorySerializer(serializers.ModelSerializer):
     class Meta:

@@ -4,10 +4,10 @@ class FavoriteLocation(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     name = models.CharField(max_length=255)
-    nickname = models.CharField(max_length=255, blank=True, null=True)  # Adicione esse campo para evitar o erro.
+    nickname = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} ({self.latitude}, {self.longitude})"
 
 
 class WeatherHistory(models.Model):

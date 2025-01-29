@@ -1,0 +1,31 @@
+REQUISIÇÃO DE PREVISÃO: Passar parametros de latitude, longitude e o tipo( hourly, daily e weekly)
+    GET - http://127.0.0.1:8000/api/forecast/?latitude=-26.3051&longitude=-48.8461&type=hourly
+
+FAVORITOS: 
+    GET - http://127.0.0.1:8000/api/favorites/
+
+HISTORICO:
+    GET - http://127.0.0.1:8000/api/history/
+
+ADICIONAR FAVORITO:
+    GET - http://127.0.0.1:8000/api/favorites/
+        {
+            "latitude": -26.3051,
+            "longitude":  -48.8461,
+            "name": "Joinville",
+            "nickname": "JLLE"
+        }
+
+EDITAR FAVORITO: PAsse como parametro o ID do item
+    PUT - http://127.0.0.1:8000/api/favorites/3/
+        {
+            "latitude": -26.3051,
+            "longitude":  -48.8461,
+            "name": "Joinville",
+            "nickname": "JLLE"
+        }
+
+DELETAR FAVORITO: Passe como parametro o ID do item
+    http://127.0.0.1:8000/api/favorites/2/
+
+
