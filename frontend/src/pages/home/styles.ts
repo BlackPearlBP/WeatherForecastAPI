@@ -4,7 +4,7 @@ export const ContainerHome = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10vh;
+    padding: 20vh;
     width: 100%;
     height: 100vh;
 
