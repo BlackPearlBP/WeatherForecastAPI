@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from .services import get_weather_forecast
+from .services import get_coordinates
 
 class WeatherForecastView(APIView):
     permission_classes = [AllowAny]
@@ -14,5 +15,13 @@ class WeatherForecastView(APIView):
         if not city or not country:
             return Response({"error": "City and country are required."}, status=400)
 
-        forecast_data = get_weather_forecast(city, country, forecast_type)
+        # Obter latitude e longitude da cidade
+        coordinates = get_coordinates(city, country)
+        if not coordinates:
+            return Response({"error": "Location not found."}, status=404)
+
+        latitude, longitude = coordinates
+
+        # Obter previsão do tempo
+        forecast_data = get_weather_forecast(city, country, latitude, longitude, forecast_type)
         return Response(forecast_data)
