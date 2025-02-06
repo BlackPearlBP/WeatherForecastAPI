@@ -11,13 +11,14 @@ export const InputWrapper = styled.div`
 export const StyledInput = styled.input`
   padding: 10px;
   border-radius: 20px;
+  font-size: 18px;
   background-color: rgba(191, 186, 176, 0.1);
   border: none;
   outline: none;
   width: 100%;
   
   &:hover {
-    border: 2px solid #595856;
+    background-color: rgba(191, 186, 176, 0.17);
   }
 `;
 

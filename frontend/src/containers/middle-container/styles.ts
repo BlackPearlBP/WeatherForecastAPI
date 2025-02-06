@@ -6,7 +6,6 @@ export const Background = styled.div`
     flex-direction: center;
     align-items: center;
     justify-content: center;
-    padding: 10vh;
     width: 100%;
     height: 50%;
 

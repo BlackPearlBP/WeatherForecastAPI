@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Card = styled.div`
     background-color: rgba(208, 215, 217, 0.15);
-    width: 20%;
+    width: 15%;
     height: 100%;
     border-radius: 25px;
     display: flex;
@@ -14,7 +14,7 @@ export const Card = styled.div`
 
     h1{
         font-family: "Roboto Regular";
-        font-size: 20px;
+        font-size: 18px;
     }
 
 `

@@ -12,7 +12,7 @@ export const Background = styled.div`
 
 export const MenuItem = styled.div<MenuItemProps>` 
     cursor: pointer;
-    font-size: 22px;
+    font-size: 20px;
     color: ${(props) => (props.active ? "#262626" : "#595856")};
     font-weight: ${(props) => (props.active ? "bold" : "normal")};
     border-bottom: ${(props) => (props.active ? "2px solid #4988BF" : "2px solid transparent")};

@@ -9,13 +9,14 @@ export const Background = styled.div`
     height: 60px;
 
     h1{
+        font-size: 20px;
         font-family: "Roboto Bold"; 
-        font-size: 18px;
     }
     p{
+        font-size: 18px
         font-family: "Roboto Regular"; 
-        font-size: 16px;
         color: #595856;
+        font-size: 20px;
     }
 `
 
