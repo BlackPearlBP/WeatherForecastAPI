@@ -7,6 +7,7 @@ interface MenuItemProps {
 export const Background = styled.div`
     display: flex;
     grid-gap: 10vh;
+    padding: 20px;
 `;
 
 export const MenuItem = styled.div<MenuItemProps>` 

@@ -1,14 +1,23 @@
 import React from "react";
-import * as S from "./styles"
+import * as S from "./styles";
 
-const MiddleContainer = () => { 
-    return(
+const MiddleContainer = ({ forecastData }) => {
+    // Verifica se os dados da previsão estão disponíveis
+    if (!forecastData || !forecastData.daily) {
+        return (
+            <S.Background>
+                <p>Faça uma busca para ver a previsão.</p>
+            </S.Background>
+        );
+    }
+
+    const firstMinTemperature = forecastData.daily.temperature_2m_min[0];  
+
+    return (
         <S.Background>
-            <h1>19°C</h1>
-            <h2>Joinville</h2>
-            <p>Santa Catarina</p>
+            <h1>{firstMinTemperature}°C</h1>
         </S.Background>
-    )
-}
+    );
+};
 
-export default MiddleContainer
+export default MiddleContainer;
