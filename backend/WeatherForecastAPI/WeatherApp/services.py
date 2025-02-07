@@ -31,9 +31,13 @@ def get_coordinates(city: str, country: str):
         print(f"Error fetching coordinates: {e}")
         return None
 
+import requests
+from django.core.cache import cache
+from datetime import datetime
+
 def get_weather_forecast(city: str, country: str, latitude: float, longitude: float, forecast_type: str = "hourly"):
     """
-    Consulta a API Open-Meteo com cache e retorna a previsão do tempo com temperatura atual, nome da cidade e data.
+    Consulta a API Open-Meteo e retorna previsão do tempo, incluindo chuva, temperatura atual, nome da cidade e data.
     """
     cache_key = f"weather_{latitude}_{longitude}_{forecast_type}"
     cached_data = cache.get(cache_key)
@@ -45,27 +49,31 @@ def get_weather_forecast(city: str, country: str, latitude: float, longitude: fl
         "latitude": latitude,
         "longitude": longitude,
         "current_weather": "true",
+        "timezone": "auto",
     }
 
-    # Adicionar parâmetros de previsão
     if forecast_type == "hourly":
-        params["hourly"] = "temperature_2m"
+        params["hourly"] = "temperature_2m,precipitation_probability"
     elif forecast_type == "daily":
-        params["daily"] = "temperature_2m_max,temperature_2m_min"
-    elif forecast_type == "weekly":
-        params["daily"] = "temperature_2m_max,temperature_2m_min"
-        params["timezone"] = "auto"
+        params["daily"] = "temperature_2m_max,temperature_2m_min,precipitation_probability_mean"
     else:
-        return {"error": "Invalid forecast type. Use 'hourly', 'daily', or 'weekly'."}
+        return {"error": "Invalid forecast type. Use 'hourly' or 'daily'."}
 
     try:
         response = requests.get(base_url, params=params)
         response.raise_for_status()
         data = response.json()
 
-        # Capturar temperatura atual e data atual
         current_temperature = data.get("current_weather", {}).get("temperature", "N/A")
-        current_date = datetime.utcnow().strftime("%Y-%m-%d")
+        current_date = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+
+        precipitation_prob = (
+            data.get("hourly", {}).get("precipitation_probability", ["N/A"])[0]
+            if forecast_type == "hourly"
+            else data.get("daily", {}).get("precipitation_probability_mean", ["N/A"])[0]
+        )
+
+        rain_forecast = "0%" if precipitation_prob == 0 else f"{precipitation_prob}%"
 
         response_data = {
             "city": city,
@@ -73,8 +81,9 @@ def get_weather_forecast(city: str, country: str, latitude: float, longitude: fl
             "latitude": latitude,
             "longitude": longitude,
             "temperature_now": current_temperature,
-            "date": current_date, 
-            "forecast": data 
+            "date": current_date,
+            "rain_forecast": rain_forecast,
+            "forecast": data
         }
 
         # Cache por 30 minutos
