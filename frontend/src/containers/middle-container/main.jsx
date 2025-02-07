@@ -2,19 +2,20 @@ import React from "react";
 import * as S from "./styles";
 
 const MiddleContainer = ({ forecastData }) => {
-
-
-    if (!forecastData || !forecastData.daily) {
+    if (!forecastData) {
         return (
             <S.Background>
-                <p>...</p>
+                <p>Carregando...</p>
             </S.Background>
         );
     }
-    const firstMinTemperature = forecastData.daily.temperature_2m_min[0];  
+
+    const { city, country, temperature_now } = forecastData;
+
     return (
         <S.Background>
-            <h1>{firstMinTemperature}°C</h1>
+            <h1>{temperature_now}°C</h1>
+            <p>{city}, {country}</p>
         </S.Background>
     );
 };

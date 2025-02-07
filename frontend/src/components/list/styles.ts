@@ -16,5 +16,22 @@ export const Card = styled.div`
         font-family: "Roboto Regular";
         font-size: 18px;
     }
+    
+    p{
+        font-family: "Roboto Regular";
+        font-size: 18px;
+    }
 
+    span{
+        display: flex;
+        grid-gap: 10px;
+    }
+
+`
+
+export const Background = styled.div`
+    display: flex;
+    flex-direction: row;
+    grid-gap: 20px;
+    height: 100%;
 `
