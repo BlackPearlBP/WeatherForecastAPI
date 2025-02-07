@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 
-const Menu = () => {
-    const [activeIndex, setActiveIndex] = useState(null);
+const Menu = ({ onSelectForecastType }) => {
+    const [activeIndex, setActiveIndex] = useState(0); 
 
     const handleItemClick = (index) => {
         setActiveIndex(index);
+        const forecastType = index === 0 ? "hourly" : "daily";
+        console.log("Tipo de previsão selecionado no Menu:", forecastType);
+        onSelectForecastType(forecastType);
     };
 
     return (

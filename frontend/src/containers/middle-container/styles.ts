@@ -14,9 +14,6 @@ export const Background = styled.div`
         font-size: 60px;
     }
 
-    h2{
-        font-size: 20px;
-    }
 
     p{
         font-size: 18px;
