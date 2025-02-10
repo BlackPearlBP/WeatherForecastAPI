@@ -1,19 +1,16 @@
 import React from "react";
 import List from "../../components/list/main";
+import * as S from "./styles"
 
-const BottomContainer = ({ dailyForecast, hourlyForecast, forecastType }) => {
-
-    const forecastData = forecastType === "daily" ? dailyForecast : hourlyForecast;
+const BottomContainer = ({ dailyForecast }) => {
+    console.log("Dados recebidos no BottomContainer:", dailyForecast);
 
     return (
-        <div>
-            {forecastData ? (
-                <List forecastData={forecastData} forecastType={forecastType} />
-            ) : (
-                <p>Carregando previsões...</p>
-            )}
-        </div>
+        <S.Background>
+                <List forecastData={dailyForecast} forecastType="daily" />
+        </S.Background>
     );
 };
+
 
 export default BottomContainer;

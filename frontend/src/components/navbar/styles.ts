@@ -13,7 +13,7 @@ export const Background = styled.div`
         font-family: "Roboto Bold"; 
     }
     p{
-        font-size: 18px
+        font-size: 18px;
         font-family: "Roboto Regular"; 
         color: #595856;
         font-size: 20px;

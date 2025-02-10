@@ -1,18 +1,22 @@
-import React, { useState }  from "react";
-import * as S from "./styles"
+import React from "react";
+import { format } from "date-fns";
+import { enUS } from "date-fns/locale";
+import * as S from "./styles";
 import Search from "../search/main";
 
-const Navbar = ({ onSearch}) => {
+const Navbar = ({ onSearch }) => {
+
+    const currentDate = format(new Date(), "EEEE dd, MMMM yyyy", { locale: enUS });
 
     return (
         <S.Background>
             <S.ColumnTitle>
                 <h1>Weather Forecast</h1>
-                <p>Monday 02, February 2025</p>
+                <p>{currentDate}</p> 
             </S.ColumnTitle>
-            <Search onSearch={onSearch}/>
+            <Search onSearch={onSearch} />
         </S.Background>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

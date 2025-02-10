@@ -5,7 +5,7 @@ const MiddleContainer = ({ forecastData }) => {
     if (!forecastData) {
         return (
             <S.Background>
-                <p>Carregando...</p>
+                <p>Please, search a city...</p>
             </S.Background>
         );
     }
