@@ -13,30 +13,37 @@
 
 **Crie um ambiente virtual e ative-o**:
 -python -m venv venv
+
 Para ativar o ambiente no Linux:
-source venv/bin/activate
+- source venv/bin/activate
 Para ativar o ambiente em Windows:  
-venv\Scripts\activate 
-Instale as dependências do backend:
-pip install -r requirements.txt
-Aplique as migrações do banco de dados:
-python manage.py migrate
-Execute o servidor de desenvolvimento:
-python manage.py runserver
-Instale as dependências do frontend:
-cd frontend
-npm install
-npm run dev
+- venv\Scripts\activate
+
+**Instale as dependências do backend**:
+- pip install -r requirements.txt
+
+**Aplique as migrações do banco de dados**:
+- python manage.py migrate
+
+**Execute o servidor de desenvolvimento**:
+- python manage.py runserver
+
+**Instale as dependências do frontend**:
+Execute no terminal:
+- cd ..
+- cd frontend
+- npm install
+- npm run dev
 
 	
-##Uso
+## Uso
 -**Acesse o software**:
 http://localhost:5173/
-##Endpoints
+## Endpoints
 http://127.0.0.1:8000/api/forecast/?city=São Paulo&country=Brazil&type=daily
-##Contribuição
+## Contribuição
 Faça um fork do repositório.
 Crie uma branch para sua feature ou correção de bug.
 Envie um Pull Request para análise.
-##Contato
+## Contato
 Caso tenha dúvidas ou sugestões, entre em contato pelo GitHub Issues.
