@@ -7,10 +7,12 @@
 ## Instalação
 **Clone este repositório**: 
 - git clone https://github.com/BlackPearlBP/WeatherForecastAPI.git
+
 **Navegue até o diretório do projeto**: 
 - cd WeatherForecastAPI.
-Crie um ambiente virtual e ative-o:
-python -m venv venv
+
+**Crie um ambiente virtual e ative-o**:
+-python -m venv venv
 Para ativar o ambiente no Linux:
 source venv/bin/activate
 Para ativar o ambiente em Windows:  
