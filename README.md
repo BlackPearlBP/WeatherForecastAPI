@@ -1,6 +1,6 @@
 # WeatherForecastAPI
 
-##Tecnologias Utilizadas\n
+##Tecnologias Utilizadas
 -**Linguagem**: Python
 -**Framework**: Django Rest Framework
 -**Serviços de Terceiros**: Open-meteo e Nominatim
