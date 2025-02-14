@@ -16,6 +16,7 @@
 
 Para ativar o ambiente no Linux:
 - source venv/bin/activate
+
 Para ativar o ambiente em Windows:  
 - venv\Scripts\activate
 
